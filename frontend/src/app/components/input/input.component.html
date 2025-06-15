@@ -1,0 +1,29 @@
+<label *ngIf="label" [attr.for]="id">{{ label }}</label>
+<input
+  [id]="id"
+  [type]="type"
+  [placeholder]="placeholder"
+  [autocomplete]="autocomplete"
+  class="form-control"
+  [ngClass]="{
+    'ng-invalid': control?.invalid && (control?.dirty || control?.touched),
+    'ng-touched': control?.touched,
+    customClass
+  }"
+  [formControl]="control!"
+/>
+
+<ng-container *ngIf="control?.invalid && (control?.dirty || control?.touched)">
+  <span *ngIf="control?.errors?.['required']" class="error-message"
+    >Este campo es requerido.</span
+  >
+  <span *ngIf="control?.errors?.['email']" class="error-message"
+    >Introduce un email válido.</span
+  >
+  <span *ngIf="control?.errors?.['minlength']" class="error-message">
+    Mínimo {{ control?.errors?.['minlength'].requiredLength }} caracteres.
+  </span>
+  <span *ngIf="control?.errors?.['maxlength']" class="error-message">
+    Máximo {{ control?.errors?.['maxlength'].requiredLength }} caracteres.
+  </span>
+</ng-container>

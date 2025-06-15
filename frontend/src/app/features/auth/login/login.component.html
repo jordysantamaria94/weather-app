@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="w-50">
+    <app-card title="Login">
+      <form class="card-body" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div
+          *ngIf="apiError"
+          class="error-alert text-center"
+          style="margin-bottom: 15px"
+        >
+          {{ apiError }}
+        </div>
+
+        <div class="form-group">
+          <app-input
+            id="email"
+            label="Email"
+            type="email"
+            placeholder=""
+            autocomplete="email"
+            [formControl]="emailControl"
+          />
+        </div>
+        <div class="form-group">
+          <app-input
+            id="password"
+            label="Password"
+            type="password"
+            placeholder=""
+            autocomplete="password"
+            [formControl]="passwordControl"
+          />
+        </div>
+        <div class="form-group">
+          <button type="submit" class="w-100" [disabled]="loginForm.invalid">
+            Login
+          </button>
+        </div>
+      </form>
+      <div class="card-footer text-center">
+        <a routerLink="/auth/register">Necesitas una cuenta? Registrate!</a>
+      </div>
+    </app-card>
+  </div>
+</div>

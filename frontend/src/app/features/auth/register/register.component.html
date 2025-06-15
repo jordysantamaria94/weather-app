@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="w-50">
+    <app-card title="Crear Cuenta">
+      <form
+        class="card-body"
+        [formGroup]="registerForm"
+        (ngSubmit)="onSubmit()"
+      >
+        <div
+          *ngIf="apiError"
+          class="error-alert text-center"
+          style="margin-bottom: 15px"
+        >
+          {{ apiError }}
+        </div>
+
+        <div class="form-group">
+          <app-input
+            id="name"
+            label="Nombre"
+            type="text"
+            placeholder="Ingrese nombre completo"
+            autocomplete="name"
+            [formControl]="nameControl"
+          />
+        </div>
+        <div class="flex gap-2">
+          <div class="form-group w-50">
+            <app-input
+              id="password"
+              label="Password"
+              type="password"
+              placeholder="Ingrese password"
+              autocomplete="password"
+              [formControl]="passwordControl"
+            />
+          </div>
+          <div class="form-group w-50">
+            <app-input
+              id="repeat"
+              label="Confirm Password"
+              type="password"
+              placeholder="Ingrese password"
+              autocomplete="password"
+              [formControl]="repeatControl"
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <app-input
+            id="email"
+            label="Email"
+            type="email"
+            placeholder="Ingrese email"
+            autocomplete="email"
+            [formControl]="emailControl"
+          />
+        </div>
+        <div class="form-group mt-20">
+          <button type="submit" class="w-100" [disabled]="registerForm.invalid">
+            Crear Cuenta
+          </button>
+        </div>
+      </form>
+      <div class="card-footer text-center">
+        <a routerLink="/auth/login">Ya tienes una cuenta? Inicia Sesión</a>
+      </div>
+    </app-card>
+  </div>
+</div>

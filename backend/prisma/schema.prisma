@@ -1,0 +1,37 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique(map: "email") @db.VarChar(255)
+  name      String   @db.VarChar(255)
+  password  String   @db.VarChar(255)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Country {
+  id        Int        @id @default(autoincrement())
+  name      String     @unique @db.VarChar(255)
+  timezones TimeZone[] // Relación inversa
+}
+
+model Tasks {
+  id   Int    @id @default(autoincrement())
+  name String @db.VarChar(255)
+}
+
+model TimeZone {
+  id        Int    @id @default(autoincrement())
+  countryId Int
+  name      String @db.VarChar(255)
+  coords   String @db.VarChar(255)
+
+  country Country @relation(fields: [countryId], references: [id])
+}

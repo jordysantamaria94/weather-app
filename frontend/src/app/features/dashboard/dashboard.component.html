@@ -1,0 +1,103 @@
+<div class="dashboard-container">
+  <app-sidebar></app-sidebar>
+
+  <div class="main-content">
+    <div class="dashboard-grid">
+      <div class="flex gap-3">
+        <div class="w-33">
+          <app-card-dashboard title="Pais seleccionado">
+            <div class="card-content line-height-06">
+              <p>{{ location.country }}</p>
+              <p>Capital: {{ location.capital }}</p>
+              <p>Region: {{ location.region }}</p>
+              <p>Latitud: {{ location.lat }} Longitud: {{ location.lon }}</p>
+            </div>
+          </app-card-dashboard>
+
+          <app-card-dashboard title="Otras tareas" customClass="mt-20">
+            <div class="card-content card-tasks">
+              <ul>
+                <li class="bullet" *ngFor="let task of tasks">
+                  {{ task.name }}
+                </li>
+              </ul>
+            </div>
+          </app-card-dashboard>
+        </div>
+        <div class="w-33">
+          <app-card-dashboard title="Clima">
+            <div class="card-content">
+              <div class="flex items-center">
+                <div class="w-25 text-center">
+                  <img
+                    class="weather-image"
+                    [src]="condition.image"
+                    alt="Weather Image"
+                  />
+                </div>
+                <div class="w-75">
+                  <span class="weather-temp">{{ condition.temp | round }} °C</span
+                  ><br />
+                  <span class="weather-status">{{ condition.currently }}</span>
+                </div>
+              </div>
+            </div>
+          </app-card-dashboard>
+
+          <app-card-dashboard title="Zonas horarias disponibles" customClass="mt-20">
+            <div class="card-content">
+              <ul class="no-dots">
+                <li
+                  *ngFor="let timezone of timezones"
+                  class="pointer link"
+                  (click)="changeTimezone(timezone.id)"
+                >
+                  {{ timezone.name }}
+                </li>
+              </ul>
+            </div>
+          </app-card-dashboard>
+
+          <app-card-dashboard title="Hora" customClass="mt-20">
+            <div class="card-content line-height-06">
+              <p class="date">{{ localtime.time | date: 'dd/MM/yyyy hh:mm a':'America/Mexico_City' }}</p>
+              <p class="timezone">{{ localtime.timezone_id }}</p>
+            </div>
+          </app-card-dashboard>
+        </div>
+        <div class="w-33">
+          <app-card-dashboard title="Paises disponibles">
+            <div class="card-content">
+              <ul class="no-dots">
+                <li class="flex items-center">
+                  <img
+                    src="https://flagpedia.net/data/flags/w580/mx.webp"
+                    class="country-flag"
+                    alt="Mexico Flag"
+                  />
+                  <p class="text-country-flag pointer link" (click)="changeCountry(1)">Mexico</p>
+                </li>
+                <li class="flex items-center">
+                  <img
+                    src="https://flagpedia.net/data/flags/w580/de.webp"
+                    class="country-flag"
+                    alt="Germany Flag"
+                  />
+                  <p class="text-country-flag pointer link" (click)="changeCountry(2)">Alemania</p>
+                </li>
+                <li class="flex items-center">
+                  <img
+                    src="https://flagpedia.net/data/flags/w580/fr.webp"
+                    class="country-flag"
+                    alt="France Flag"
+                  />
+                  <p class="text-country-flag pointer link" (click)="changeCountry(3)">Francia</p>
+                </li>
+              </ul>
+            </div>
+          </app-card-dashboard>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

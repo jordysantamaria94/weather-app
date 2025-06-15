@@ -1,0 +1,65 @@
+.dashboard-container {
+  display: flex;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px 30px;
+}
+
+.dashboard-grid {
+  display: grid;
+}
+
+.card-content {
+  padding: 15px 25px;
+  color: #4a5568;
+  font-size: 0.95em;
+}
+
+.line-height-06 {
+  line-height: 0.6;
+}
+
+.card-tasks ul {
+  padding: 0;
+  margin: 0;
+}
+
+/* Card tasks styles */
+.card-tasks ul li.bullet {
+  display: flex;
+  margin-bottom: 8px;
+  color: #4a5568;
+  line-height: 1.5;
+  font-size: 0.95em;
+}
+
+.card-tasks ul li.bullet::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #f6ad55;
+  border-radius: 50%;
+  margin-right: 10px;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.card-tasks ul li.bullet:last-child {
+  margin-bottom: 0;
+}
+
+/* Card countries styles */
+
+.country-flag {
+  border-radius: 100%;
+  height: 35px;
+  width: 35px;
+}
+
+.text-country-flag {
+  margin-left: 10px;
+  font-weight: bold;
+}
