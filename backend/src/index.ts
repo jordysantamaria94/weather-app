@@ -1,11 +1,11 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import userRoutes from "../routes/userRoutes";
-import countryRoutes from "../routes/countryRoutes";
-import taskRoutes from "../routes/taskRoutes";
-import authRoutes from "../routes/authRoutes";
-import weatherRoutes from "../routes/weatherRoutes";
+import userRoutes from "./routes/userRoutes";
+import countryRoutes from "./routes/countryRoutes";
+import taskRoutes from "./routes/taskRoutes";
+import authRoutes from "./routes/authRoutes";
+import weatherRoutes from "./routes/weatherRoutes";
 
 dotenv.config();
 
