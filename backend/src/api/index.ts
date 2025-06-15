@@ -1,38 +1,38 @@
-// import express from "express";
-// import dotenv from "dotenv";
-// import cors from "cors";
-// import userRoutes from "../routes/userRoutes";
-// import countryRoutes from "../routes/countryRoutes";
-// import taskRoutes from "../routes/taskRoutes";
-// import authRoutes from "../routes/authRoutes";
-// import weatherRoutes from "../routes/weatherRoutes";
+import express from "express";
+import dotenv from "dotenv";
+import cors from "cors";
+import userRoutes from "../routes/userRoutes";
+import countryRoutes from "../routes/countryRoutes";
+import taskRoutes from "../routes/taskRoutes";
+import authRoutes from "../routes/authRoutes";
+import weatherRoutes from "../routes/weatherRoutes";
 
-// dotenv.config();
+dotenv.config();
 
-// const app = express();
-// const port = process.env.PORT;
+const app = express();
+const port = process.env.PORT;
 
-// app.use(express.json());
+app.use(express.json());
 
-// const corsOptions = {
-//   origin: "*",
-//   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-//   credentials: true,
-//   optionsSuccessStatus: 204,
-// };
+const corsOptions = {
+  origin: "*",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
+  optionsSuccessStatus: 204,
+};
 
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
-// app.get('/api/test', (req, res) => {
-//   console.log('¡La ruta /api/test fue alcanzada!'); // Este mensaje aparecerá en los Runtime Logs si funciona
-//   res.status(200).json({ message: '¡Tu API de Express en Vercel está funcionando!', timestamp: new Date() });
-// });
+app.get('/api/test', (req, res) => {
+  console.log('¡La ruta /api/test fue alcanzada!'); // Este mensaje aparecerá en los Runtime Logs si funciona
+  res.status(200).json({ message: '¡Tu API de Express en Vercel está funcionando!', timestamp: new Date() });
+});
 
-// app.use("/api", userRoutes);
-// app.use("/api", authRoutes);
-// app.use("/api", countryRoutes);
-// app.use("/api", taskRoutes);
-// app.use("/api", weatherRoutes);
+app.use("/api", userRoutes);
+app.use("/api", authRoutes);
+app.use("/api", countryRoutes);
+app.use("/api", taskRoutes);
+app.use("/api", weatherRoutes);
 
 // app
 //   .listen(port, () => {
@@ -41,23 +41,5 @@
 //   .on("error", (error) => {
 //     throw new Error(error.message);
 //   });
-
-// export default app;
-
-import express from "express";
-
-const app = express();
-
-app.get('/api/test-simple', (req, res) => {
-  console.log('¡Simple Test route hit!'); // Esto debería aparecer si la función se ejecuta
-  res.status(200).json({ message: 'Vercel Function is ALIVE!' });
-});
-
-// También puedes poner una ruta en la raíz del API para ver si responde
-app.get('/api', (req, res) => {
-  console.log('¡API Root hit!');
-  res.status(200).json({ message: 'Welcome to the API root!' });
-});
-
 
 export default app;
