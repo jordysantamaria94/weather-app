@@ -23,11 +23,6 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.get('/api/test', (req, res) => {
-  console.log('¡La ruta /api/test fue alcanzada!'); // Este mensaje aparecerá en los Runtime Logs si funciona
-  res.status(200).json({ message: '¡Tu API de Express en Vercel está funcionando!', timestamp: new Date() });
-});
-
 app.use("/api", userRoutes);
 app.use("/api", authRoutes);
 app.use("/api", countryRoutes);
