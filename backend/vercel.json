@@ -5,13 +5,13 @@
   "functions": {
     "backend/api/index.ts": {
       "runtime": "@vercel/node@3.0.0",
-      "includeFiles": "backend/dist/**"
+      "includeFiles": "dist/**"
     }
   },
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "backend/api/index.ts"
+      "dest": "api/index.ts"
     }
   ]
 }
