@@ -4,7 +4,7 @@
   "buildCommand": "npm run build --prefix backend",
   "functions": {
     "backend/src/index.ts": {
-      "runtime": "@vercel/node@2.x",
+      "runtime": "@vercel/node@3.0.0",
       "includeFiles": "backend/dist/**"
     }
   },
