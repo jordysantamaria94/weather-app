@@ -1,11 +1,11 @@
 // import express from "express";
 // import dotenv from "dotenv";
 // import cors from "cors";
-// import userRoutes from "./routes/userRoutes";
-// import countryRoutes from "./routes/countryRoutes";
-// import taskRoutes from "./routes/taskRoutes";
-// import authRoutes from "./routes/authRoutes";
-// import weatherRoutes from "./routes/weatherRoutes";
+// import userRoutes from "./../src/routes/userRoutes";
+// import countryRoutes from "./../src/routes/countryRoutes";
+// import taskRoutes from "./../src/routes/taskRoutes";
+// import authRoutes from "./../src/routes/authRoutes";
+// import weatherRoutes from "./../src/routes/weatherRoutes";
 
 // dotenv.config();
 

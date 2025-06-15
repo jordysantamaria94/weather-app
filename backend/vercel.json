@@ -3,7 +3,7 @@
   "installCommand": "npm install --prefix backend",
   "buildCommand": "npm run build --prefix backend",
   "functions": {
-    "backend/src/index.ts": {
+    "backend/api/index.ts": {
       "runtime": "@vercel/node@3.0.0",
       "includeFiles": "backend/dist/**"
     }
@@ -11,7 +11,7 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "backend/src/index.ts"
+      "dest": "backend/api/index.ts"
     }
   ]
 }
