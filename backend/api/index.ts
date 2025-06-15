@@ -29,12 +29,12 @@ app.use("/api", countryRoutes);
 app.use("/api", taskRoutes);
 app.use("/api", weatherRoutes);
 
-// app
-//   .listen(port, () => {
-//     console.log(`Server running at http://localhost:${port}`);
-//   })
-//   .on("error", (error) => {
-//     throw new Error(error.message);
-//   });
+app
+  .listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
+  })
+  .on("error", (error) => {
+    throw new Error(error.message);
+  });
 
-export default app;
+//export default app;

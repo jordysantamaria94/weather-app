@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  # Base de datos MySQL
+  db:
+    image: mysql:8.0
+    container_name: weather_app_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: mysqlrootpassword2025
+      MYSQL_DATABASE: weather_app_db
+      MYSQL_USER: weather_user
+      MYSQL_PASSWORD: weatheruserpassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+  # Backend de Node.js
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: weather_app_backend
+    restart: always
+    environment:
+      PORT: 3000
+      DATABASE_URL: mysql://weather_user:weatheruserpassword@db:3306/weather_app_db # Conéctate al servicio 'db'
+      JWT_SECRET: JWTSECRETAQUI # Clave segura y única
+      WEATHER_API_KEY: APIKEYDELCLIMAAQUI # Clave de la API de clima
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+
+  # Frontend de Angular
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.angular
+    container_name: weather_app_frontend
+    restart: always
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend
+
+volumes:
+  db_data:
